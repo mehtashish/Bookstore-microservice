@@ -1,7 +1,8 @@
 const User = require('../model/usersModel');
 
 const addUser = async (req, res) => {
-    const newUser = await new User(req.body);
+    const newUser = new User(req.body);
+    await newUser.save();
     res.status(201).send(`Welcome ${newUser.name}`);
 };
 
